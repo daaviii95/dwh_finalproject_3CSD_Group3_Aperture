@@ -11,7 +11,7 @@ COPY requirements.txt /app/
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ingest.py /app/
+COPY scripts/ingest.py /app/ingest.py
 # Keep data folder mount-point; in docker compose we'll mount ./data -> /data
 ENV DATA_DIR=/data
 CMD ["python", "ingest.py"]

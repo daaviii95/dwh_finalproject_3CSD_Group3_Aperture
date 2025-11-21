@@ -1,0 +1,25 @@
+[2025-11-21T16:06:38.336+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-21T16:06:38.351+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: shopzada_ingestion.validate_data_mount scheduled__2025-11-20T00:00:00+00:00 [queued]>
+[2025-11-21T16:06:38.361+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: shopzada_ingestion.validate_data_mount scheduled__2025-11-20T00:00:00+00:00 [queued]>
+[2025-11-21T16:06:38.363+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-11-21T16:06:38.372+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): validate_data_mount> on 2025-11-20 00:00:00+00:00
+[2025-11-21T16:06:38.376+0000] {standard_task_runner.py:72} INFO - Started process 178 to run task
+[2025-11-21T16:06:38.379+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'shopzada_ingestion', 'validate_data_mount', 'scheduled__2025-11-20T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/shopzada_ingest.py', '--cfg-path', '/tmp/tmphf2n_h9s']
+[2025-11-21T16:06:38.382+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask validate_data_mount
+[2025-11-21T16:06:38.446+0000] {task_command.py:467} INFO - Running <TaskInstance: shopzada_ingestion.validate_data_mount scheduled__2025-11-20T00:00:00+00:00 [running]> on host be9f7b36f04b
+[2025-11-21T16:06:38.529+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='shopzada-data' AIRFLOW_CTX_DAG_ID='shopzada_ingestion' AIRFLOW_CTX_TASK_ID='validate_data_mount' AIRFLOW_CTX_EXECUTION_DATE='2025-11-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-20T00:00:00+00:00'
+[2025-11-21T16:06:38.531+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-21T16:06:38.551+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-21T16:06:38.553+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'test -d /opt/***/data && ls -1 /opt/***/data']
+[2025-11-21T16:06:38.562+0000] {subprocess.py:86} INFO - Output:
+[2025-11-21T16:06:38.574+0000] {subprocess.py:93} INFO - Business Department
+[2025-11-21T16:06:38.575+0000] {subprocess.py:93} INFO - Customer Management Department
+[2025-11-21T16:06:38.576+0000] {subprocess.py:93} INFO - Enterprise Department
+[2025-11-21T16:06:38.577+0000] {subprocess.py:93} INFO - Marketing Department
+[2025-11-21T16:06:38.578+0000] {subprocess.py:93} INFO - Operations Department
+[2025-11-21T16:06:38.579+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-21T16:06:38.601+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-21T16:06:38.603+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=shopzada_ingestion, task_id=validate_data_mount, run_id=scheduled__2025-11-20T00:00:00+00:00, execution_date=20251120T000000, start_date=20251121T160638, end_date=20251121T160638
+[2025-11-21T16:06:38.632+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-21T16:06:38.651+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-21T16:06:38.653+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
