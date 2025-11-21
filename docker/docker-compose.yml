@@ -1,14 +1,35 @@
-version: '3.8' 
-services: 
-"  postgres:" 
-"    image: postgres:15" 
-"    environment:" 
-"      POSTGRES_USER: dw_user" 
-"      POSTGRES_PASSWORD: dw_pass" 
-"      POSTGRES_DB: dw" 
-"    ports:" 
-"      - '5432:5432'" 
-"    volumes:" 
-"      - postgres_data:/var/lib/postgresql/data" 
-volumes: 
-"  postgres_data:" 
+version: "3.8"
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: shopzada
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 10
+
+  ingest:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: shopzada
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      DATA_DIR: /data
+      CSV_CHUNK_SIZE: 20000
+    volumes:
+      - ./data:/data:ro
+
+volumes:
+  db_data:
